@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Donate to Lochs in Scotland</title>
+</head>
+<body>
+    <h1>Lochs in Scotland for Donating</h1>
+    
+    {% for loch in lochs %}
+    <b> <a href="{% url 'loch_detail' id=loch.id %}">{{loch.ObjectID}}</a></b>
+      Loch code {{ loch.LochCode }}; Loch name: {{loch.LochName}} - This loch is located in {{ loch.IslandName }}.  
+       The local authority for the loch is {{ loch.LochAuth }} (Local authority ID: {{ loch.AuthID }}). 
+       The surface area of this loch is {{ loch.SurfaceArea }} (Unit: 0.01 Square Kilometres).
+    </p>
+    {% endfor %}
+
+</body>
+</html>
