@@ -16,3 +16,11 @@ class Loch(models.Model):
     def __str__(self):
         return self.ObjectID, self.LochCode, self.SurfaceArea, self.SAuthID, self.LochAuth, 
         self.IslandName, self.LochName, self.Price
+
+# 购物车
+class CartItem(models.Model):
+    loch = models.ForeignKey(Loch, on_delete=models.CASCADE)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.loch.LochName} - {self.added_at}"
